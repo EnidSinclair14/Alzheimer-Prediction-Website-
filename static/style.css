@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: poppins, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     margin: 0;
@@ -441,5 +441,263 @@ input[type="file"] {
     }
     .hero-image-wrapper img, .info-image img {
         height: 250px;
+    }
+}
+
+/* ==========================================
+   PENINGKATAN HALAMAN PREDICT
+========================================== */
+.predict-container {
+    max-width: 800px; /* Dibuat sedikit lebih sempit agar lebih fokus */
+}
+
+.predict-header {
+    margin-bottom: 2.5rem;
+}
+
+/* Upload Drop Zone */
+.upload-drop-zone {
+    border: 2px dashed var(--primary-color);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-drop-zone:hover, .upload-drop-zone.dragover {
+    background: rgba(43, 108, 176, 0.05);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.upload-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.upload-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.upload-subtext {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Preview Image */
+.preview-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview-container img {
+    max-height: 250px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 3px solid white;
+}
+
+/* Buttons Utilities */
+.w-100 { width: 100%; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-2 { margin-top: 0.75rem; }
+
+button:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Loading Spinner */
+.loading-state {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(235, 248, 255, 0.5);
+    border-radius: 12px;
+}
+
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 5px solid rgba(43, 108, 176, 0.2);
+    border-left-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem auto;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.loading-state p {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+.loading-state span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-light);
+}
+
+/* Summary Cards (Hasil Prediksi) */
+.result-summary {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.summary-card {
+    flex: 1;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    border-left: 5px solid var(--primary-color);
+}
+
+.summary-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.summary-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.highlight-red { color: #c53030; }
+.highlight-blue { color: #2b6cb0; }
+
+.image-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .result-summary { flex-direction: column; gap: 1rem; }
+}
+
+/* ==========================================
+   CUSTOM SCROLLBAR (Tampilan Scroll Rapi)
+========================================== */
+/* Mengatur lebar keseluruhan scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; /* Untuk scrollbar horizontal jika ada */
+}
+
+/* Mengatur jalur/track tempat scrollbar bergerak */
+::-webkit-scrollbar-track {
+    background: var(--bg-color); 
+    border-radius: 10px;
+}
+
+/* Mengatur batang scrollbar (thumb) itu sendiri */
+::-webkit-scrollbar-thumb {
+    background: #a0aec0; /* Warna abu-abu kebiruan yang kalem */
+    border-radius: 10px;
+    border: 2px solid var(--bg-color); /* Memberikan efek padding/jarak dari tepi */
+}
+
+/* Efek saat batang scrollbar di-hover (disentuh mouse) */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color); /* Berubah menjadi biru tema kita */
+    cursor: pointer;
+}
+
+/* ==========================================
+   2D MASCOT COMPANION
+========================================== */
+.mascot-container {
+    position: fixed; /* Membuat maskot selalu menempel di layar */
+    bottom: 20px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
+    z-index: 9999; /* Pastikan selalu berada di lapisan paling depan */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Meratakan gelembung teks ke kanan */
+}
+
+/* Gambar Maskot */
+.mascot-img {
+    width: 100px; /* Ukuran maskot, bisa disesuaikan */
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); /* Bayangan agar terlihat nyata */
+    animation: floatMascot 3s ease-in-out infinite; /* Animasi melayang */
+    transition: transform 0.3s ease;
+}
+
+/* Gelembung Teks */
+.mascot-bubble {
+    background: var(--white);
+    color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px; /* Bentuk seperti gelembung komik */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    max-width: 200px;
+    text-align: right;
+    border: 2px solid var(--primary-color);
+    
+    /* Disembunyikan secara default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.9);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Animasi membal */
+}
+
+/* Interaksi saat kursor menyentuh maskot */
+.mascot-container:hover .mascot-bubble {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.mascot-container:hover .mascot-img {
+    transform: scale(1.1); /* Maskot sedikit membesar saat disentuh */
+}
+
+/* Animasi Melayang Terus-menerus */
+@keyframes floatMascot {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Sembunyikan maskot di layar HP yang terlalu kecil jika mengganggu */
+@media (max-width: 480px) {
+    .mascot-img {
+        width: 75px; /* Perkecil di HP */
+    }
+    .mascot-bubble {
+        display: none; /* Sembunyikan teks di HP agar tidak menutupi layar */
     }
 }

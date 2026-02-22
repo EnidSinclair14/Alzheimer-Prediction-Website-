@@ -5,46 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediksi MRI - Alzheimer</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <a href="/templates/index.html" class="back-link">← Kembali ke Beranda</a>
+    <div class="container predict-container">
+        <nav class="top-nav">
+            <a href="/templates/index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+            </a>
         </nav>
 
-        <header class="text-center">
-            <h1>Unggah Gambar MRI</h1>
-            <p>Pilih file gambar MRI otak (JPG/PNG) untuk diprediksi.</p>
+        <header class="text-center predict-header">
+            <h1>Analisis <span class="text-gradient">Gambar MRI</span></h1>
+            <p>Unggah citra MRI otak Anda (JPG/PNG) untuk mendapatkan prediksi dan visualisasi Grad-CAM secara <i>real-time</i>.</p>
         </header>
 
         <main class="prediction-main">
             <div class="upload-card">
                 <form id="upload-form">
-                    <input type="file" id="image-input" accept="image/*" required>
-                    <div class="preview-container">
-                        <img id="image-preview" src="" alt="Preview Gambar" style="display: none;">
+                    <div class="upload-drop-zone" id="drop-zone">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <span class="upload-text">Klik di sini atau Tarik gambar ke area ini</span>
+                        <span class="upload-subtext">Format yang didukung: JPG, JPEG, PNG</span>
+                        <input type="file" id="image-input" accept="image/*" required hidden>
                     </div>
-                    <button type="submit" class="btn-primary" id="submit-btn">Analisis Gambar</button>
+
+                    <div class="preview-container" id="preview-section" style="display: none;">
+                        <img id="image-preview" src="" alt="Preview Gambar">
+                        <button type="button" id="remove-img-btn" class="btn-outline btn-sm mt-2">
+                            <i class="fas fa-trash-alt"></i> Ganti Gambar
+                        </button>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-large w-100 mt-4" id="submit-btn" disabled>
+                        <i class="fas fa-brain"></i> Analisis Gambar Sekarang
+                    </button>
                 </form>
-                <div id="loading" style="display: none;">
-                    <p>⏳ Sedang menganalisis dan membuat Grad-CAM... Mohon tunggu.</p>
+
+                <div id="loading" class="loading-state" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Memproses gambar dan membangun <i>Heatmap</i> Grad-CAM...<br><span>Mohon tunggu sebentar.</span></p>
                 </div>
             </div>
 
             <div id="result-section" class="result-card" style="display: none;">
-                <h2>Hasil Analisis</h2>
-                <div class="result-text">
-                    <p>Prediksi Kelas: <span id="pred-class" class="highlight"></span></p>
-                    <p>Tingkat Keyakinan (Confidence): <span id="pred-confidence" class="highlight"></span></p>
+                <h2><i class="fas fa-clipboard-check"></i> Hasil Diagnosis AI</h2>
+                
+                <div class="result-summary">
+                    <div class="summary-card">
+                        <span class="summary-label">Prediksi Kelas</span>
+                        <span id="pred-class" class="summary-value highlight-red"></span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="summary-label">Tingkat Keyakinan (Confidence)</span>
+                        <span id="pred-confidence" class="summary-value highlight-blue"></span>
+                    </div>
                 </div>
                 
                 <div class="images-comparison">
                     <div class="image-box">
-                        <h3>Gambar Asli</h3>
+                        <h3><i class="fas fa-image"></i> Gambar Asli</h3>
                         <img id="result-original" src="" alt="Gambar Asli">
                     </div>
                     <div class="image-box">
-                        <h3>Grad-CAM Heatmap</h3>
+                        <h3><i class="fas fa-fire"></i> Grad-CAM Heatmap</h3>
                         <img id="result-gradcam" src="" alt="Grad-CAM">
                     </div>
                 </div>
@@ -52,8 +76,12 @@
         </main>
     </div>
 
-    <!-- 
+    <div class="mascot-container">
+        <div class="mascot-bubble">Halo! Aku NeuroBot. Ayo kita deteksi Alzheimer bersama! 🧠✨</div>
+        
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="NeuroBot Mascot" class="mascot-img">
+    </div>
+
     <script src="../static/script.js"></script>
-    -->
 </body>
 </html>
