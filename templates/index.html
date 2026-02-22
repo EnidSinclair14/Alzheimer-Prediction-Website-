@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Alzheimer dengan MRI</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🧠</span> NeuroAI
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#tech">Teknologi</a></li>
+            </ul>
+            <a href="/templates/predict.html" class="btn-primary btn-sm">Coba Prediksi</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero split-section">
+            <div class="hero-content">
+                <div class="badge">✨ Didukung oleh ResNet-18 & Grad-CAM</div>
+                <h1>Deteksi Dini Alzheimer via <span class="text-gradient">MRI Otak</span></h1>
+                <p>Sistem cerdas berbasis <i>Deep Learning</i> untuk membantu tenaga medis mendeteksi tingkat keparahan demensia secara cepat, transparan, dan akurat.</p>
+                
+                <div class="hero-buttons">
+                    <a href="/templates/predict.html" class="btn-primary btn-large">
+                        Mulai Analisis Sekarang
+                    </a>
+                    <a href="#about" class="btn-outline btn-large">
+                        Pelajari Lebih Lanjut
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>4</strong>
+                        <span>Kelas Deteksi</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>~94%</strong>
+                        <span>Akurasi Model</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>< 2 Detik</strong>
+                        <span>Waktu Analisis</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dokter melihat hasil scan">
+                
+                <div class="floating-card">
+                    <span class="dot"></span>
+                    <div class="floating-text">
+                        <strong>AI Active</strong>
+                        <span>Analisis Real-time</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="about" class="info-section split-section reverse">
+            <div class="info-image">
+                <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Perawatan Lansia">
+            </div>
+            <div class="info-content">
+                <h2>Apa itu Penyakit Alzheimer?</h2>
+                <p>Alzheimer adalah gangguan neurologis progresif yang menyebabkan otak menyusut (atrofi) dan sel-sel otak mati. Ini adalah penyebab paling umum dari demensia — penurunan terus-menerus dalam pemikiran, perilaku, dan keterampilan sosial.</p>
+                <p>Deteksi dini melalui pemindaian MRI sangat penting untuk merencanakan perawatan medis yang tepat dan memperlambat laju penyakit sebelum gejala menjadi parah.</p>
+            </div>
+        </section>
+
+        <section id="tech" class="tech-section">
+            <h2 class="text-center">Teknologi di Balik Layar</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="AI Network" class="tech-img">
+                    <h3>Arsitektur ResNet-18</h3>
+                    <p>Memanfaatkan kekuatan <i>Convolutional Neural Network</i> (CNN) canggih yang telah dilatih secara khusus untuk mengenali pola penyusutan jaringan otak dan pembesaran ventrikel dari ribuan data MRI klinis.</p>
+                </div>
+                <div class="tech-card">
+                    <img src="../images/brainheatmap.png" alt="Heatmap" class="tech-img">
+                    <h3>Visualisasi Grad-CAM</h3>
+                    <p>Teknologi transparan yang tidak hanya memberikan hasil akhir, tetapi juga menyajikan <i>heatmap</i> visual. Ini memungkinkan pengguna melihat area spesifik otak mana yang memicu prediksi dari model AI.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section text-center">
+            <h2>Siap untuk Menguji Model?</h2>
+            <p>Unggah gambar irisan MRI Anda dan saksikan bagaimana AI kami bekerja secara <i>real-time</i>.</p>
+            <br>
+            <a href="/templates/predict.html" class="btn-primary btn-large">Buka Halaman Prediksi</a>
+        </section>
+    </div>
+</body>
+</html>

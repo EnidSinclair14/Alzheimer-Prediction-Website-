@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi MRI - Alzheimer</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/templates/index.html" class="back-link">← Kembali ke Beranda</a>
+        </nav>
+
+        <header class="text-center">
+            <h1>Unggah Gambar MRI</h1>
+            <p>Pilih file gambar MRI otak (JPG/PNG) untuk diprediksi.</p>
+        </header>
+
+        <main class="prediction-main">
+            <div class="upload-card">
+                <form id="upload-form">
+                    <input type="file" id="image-input" accept="image/*" required>
+                    <div class="preview-container">
+                        <img id="image-preview" src="" alt="Preview Gambar" style="display: none;">
+                    </div>
+                    <button type="submit" class="btn-primary" id="submit-btn">Analisis Gambar</button>
+                </form>
+                <div id="loading" style="display: none;">
+                    <p>⏳ Sedang menganalisis dan membuat Grad-CAM... Mohon tunggu.</p>
+                </div>
+            </div>
+
+            <div id="result-section" class="result-card" style="display: none;">
+                <h2>Hasil Analisis</h2>
+                <div class="result-text">
+                    <p>Prediksi Kelas: <span id="pred-class" class="highlight"></span></p>
+                    <p>Tingkat Keyakinan (Confidence): <span id="pred-confidence" class="highlight"></span></p>
+                </div>
+                
+                <div class="images-comparison">
+                    <div class="image-box">
+                        <h3>Gambar Asli</h3>
+                        <img id="result-original" src="" alt="Gambar Asli">
+                    </div>
+                    <div class="image-box">
+                        <h3>Grad-CAM Heatmap</h3>
+                        <img id="result-gradcam" src="" alt="Grad-CAM">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 
+    <script src="../static/script.js"></script>
+    -->
+</body>
+</html>
